@@ -53,7 +53,7 @@ Network transport: OFI
 	Put completion poll limit
   SHMEM_OFI_RX_POLL_LIMIT    -1 (type: long, default: -1)
 	Get completion poll limit
-  SHMEM_OFI_STX_MAX          17 (type: long, default: 1)
+  SHMEM_OFI_STX_MAX          1 (type: long, default: 1)
 	Maximum number of STX contexts
   SHMEM_OFI_STX_THRESHOLD    1 (type: long, default: 1)
 	Maximum number of shared contexts per STX before allocating a new STX resource
@@ -74,33 +74,3 @@ Build information:
   Build CC              gcc
   Build CFLAGS          -std=gnu11 -g -O2 -Wall -g -fvisibility=hidden
 
-
-Results for 2 PEs 500 trials with window size 64 max message size 8388608 with multiple of 2 increments, 
-targeting 1 remote PEs initiated from 1 PEs, thread safety MULTIPLE (17 threads)
-
-Length           Uni-directional Bandwidth           Message Rate
-in bytes         in megabytes per second         in messages/seconds
-        1             1.57                          1568277.25
-        2             3.30                          1651977.20
-        4             9.63                          2407702.23
-        8            96.12                          12015311.66
-       16           185.18                          11573672.11
-       32           168.12                          5253759.24
-       64           197.11                          3079782.43
-      128           673.99                          5265549.81
-      256           284.95                          1113103.66
-      512          1470.81                          2872675.03
-     1024          2835.16                          2768708.88
-     2048          4899.87                          2392514.90
-     4096          7725.01                          1885989.66
-     8192          3766.68                           459799.76
-    16384          6907.87                           421622.96
-    32768          9015.24                           275123.26
-    65536          9441.84                           144071.10
-   131072          9658.58                            73689.10
-   262144          9701.11                            37006.80
-   524288          9352.06                            17837.65
-  1048576          9353.49                             8920.18
-  2097152          9408.56                             4486.35
-  4194304          9395.78                             2240.13
-  8388608          9403.29                             1120.96

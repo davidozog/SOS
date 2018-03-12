@@ -53,7 +53,7 @@ Network transport: OFI
 	Put completion poll limit
   SHMEM_OFI_RX_POLL_LIMIT    -1 (type: long, default: -1)
 	Get completion poll limit
-  SHMEM_OFI_STX_MAX          16 (type: long, default: 1)
+  SHMEM_OFI_STX_MAX          11 (type: long, default: 1)
 	Maximum number of STX contexts
   SHMEM_OFI_STX_THRESHOLD    1 (type: long, default: 1)
 	Maximum number of shared contexts per STX before allocating a new STX resource
@@ -74,33 +74,33 @@ Build information:
   Build CC              gcc
   Build CFLAGS          -std=gnu11 -g -O2 -Wall -g -fvisibility=hidden
 
-        1             1.17                          1173473.43
-        2             2.37                          1186470.44
-        4             5.02                          1254084.01
-        8             9.87                          1234228.26
-       16            19.04                          1189841.83
-       32            14.25                           445225.99
-       64            28.35                           442895.25
-      128            54.53                           425976.64
-      256           111.47                           435427.19
-      512           207.12                           404533.97
-     1024           380.00                           371089.50
-     2048           683.69                           333835.14
-     4096          1192.63                           291168.78
-     8192          1922.18                           234641.28
-    16384          3092.66                           188761.08
-    32768          4519.29                           137917.74
-    65536          5693.98                            86883.17
-   131072          6923.25                            52820.21
-   262144          7627.75                            29097.54
-   524288          8108.64                            15466.01
-  1048576          8358.83                             7971.60
-  2097152          8480.40                             4043.77
-  4194304          8556.81                             2040.10
-  8388608          8509.52                             1014.41
 
 Results for 2 PEs 500 trials with window size 64 max message size 8388608 with multiple of 2 increments, 
-targeting 1 remote PEs initiated from 1 PEs, thread safety SINGLE (1 threads)
+targeting 1 remote PEs initiated from 1 PEs, thread safety MULTIPLE (16 threads)
 
 Length           Uni-directional Bandwidth           Message Rate
 in bytes         in megabytes per second         in messages/seconds
+        1             1.58                          1582206.52
+        2             2.80                          1402204.82
+        4             5.68                          1418885.07
+        8             9.83                          1228981.19
+       16            19.26                          1203694.83
+       32            18.54                           579236.00
+       64            50.57                           790116.66
+      128            72.36                           565340.60
+      256           173.08                           676075.74
+      512           265.11                           517786.69
+     1024           532.47                           519987.29
+     2048          1003.75                           490114.26
+     4096          1771.19                           432419.33
+     8192          5008.66                           611408.25
+    16384          6693.69                           408550.16
+    32768          8292.50                           253067.06
+    65536          9032.45                           137824.32
+   131072          9216.24                            70314.32
+   262144          9297.45                            35466.96
+   524288          9155.60                            17462.92
+  1048576          9098.60                             8677.10
+  2097152          9110.52                             4344.23
+  4194304          9097.85                             2169.10
+  8388608          9117.29                             1086.87
