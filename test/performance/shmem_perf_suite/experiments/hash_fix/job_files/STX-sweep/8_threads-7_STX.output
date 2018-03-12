@@ -1,0 +1,106 @@
+Sandia OpenSHMEM 1.4.0
+  SHMEM_INFO                 1 (type: bool, default: 0)
+	Print library information message at startup
+  SHMEM_VERSION              0 (type: bool, default: 0)
+	Print library version at startup
+  SHMEM_DEBUG                1 (type: bool, default: 0)
+	Enable debugging messages
+  SHMEM_SYMMETRIC_SIZE       536870912 (type: size, default: 536870912)
+	Symmetric heap size
+
+Additional options:
+  SHMEM_SYMMETRIC_HEAP_USE_HUGE_PAGES 0 (type: bool, default: 0)
+	Use Linux huge pages for symmetric heap
+  SHMEM_SYMMETRIC_HEAP_PAGE_SIZE 2097152 (type: size, default: 2097152)
+	Page size to use for huge pages
+  SHMEM_SYMMETRIC_HEAP_USE_MALLOC 0 (type: bool, default: 0)
+	Allocate the symmetric heap using malloc
+  SHMEM_BOUNCE_SIZE          0 (type: size, default: 2048)
+	Maximum message size to bounce buffer
+  SHMEM_MAX_BOUNCE_BUFFERS   128 (type: long, default: 128)
+	Maximum number of bounce buffers per context
+  SHMEM_TRAP_ON_ABORT        0 (type: bool, default: 0)
+	Generate trap if the program aborts or calls shmem_global_exit
+
+Collectives options:
+  SHMEM_COLL_CROSSOVER       4 (type: long, default: 4)
+	Crossover between linear and tree collectives
+  SHMEM_COLL_RADIX           4 (type: long, default: 4)
+	Radix for tree-based collectives
+  SHMEM_BARRIER_ALGORITHM    auto (type: string, default: auto)
+	Algorithm for barrier.  Options are auto, linear, tree, dissem
+  SHMEM_BCAST_ALGORITHM      auto (type: string, default: auto)
+	Algorithm for broadcast.  Options are auto, linear, tree
+  SHMEM_REDUCE_ALGORITHM     auto (type: string, default: auto)
+	Algorithm for reductions.  Options are auto, linear, tree, recdbl
+  SHMEM_COLLECT_ALGORITHM    auto (type: string, default: auto)
+	Algorithm for collect.  Options are auto, linear
+  SHMEM_FCOLLECT_ALGORITHM   auto (type: string, default: auto)
+	Algorithm for fcollect.  Options are auto, linear, ring, recdbl
+
+Network transport: OFI
+  SHMEM_OFI_ATOMIC_CHECKS_WARN 1 (type: bool, default: 0)
+	Display warnings about unsupported atomic operations
+  SHMEM_OFI_PROVIDER         auto (type: string, default: auto)
+	Provider that should be used by the OFI transport
+  SHMEM_OFI_USE_PROVIDER     auto (type: string, default: auto)
+	Deprecated, replaced by SHMEM_OFI_PROVIDER
+  SHMEM_OFI_FABRIC           auto (type: string, default: auto)
+	Fabric that should be used by the OFI transport
+  SHMEM_OFI_DOMAIN           auto (type: string, default: auto)
+	Fabric domain that should be used by the OFI transport
+  SHMEM_OFI_TX_POLL_LIMIT    -1 (type: long, default: -1)
+	Put completion poll limit
+  SHMEM_OFI_RX_POLL_LIMIT    -1 (type: long, default: -1)
+	Get completion poll limit
+  SHMEM_OFI_STX_MAX          7 (type: long, default: 1)
+	Maximum number of STX contexts
+  SHMEM_OFI_STX_THRESHOLD    1 (type: long, default: 1)
+	Maximum number of shared contexts per STX before allocating a new STX resource
+  SHMEM_OFI_STX_ALLOCATOR    round-robin (type: string, default: round-robin)
+	Algorithm for allocating STX resources to contexts
+
+On-node transport: XPMEM
+
+Build information:
+  Git Version           v1.4.0-133-g73b59e2b (pr/hash_tid_struct_fix)
+  Configure Args        '--prefix=/global/homes/o/ozog/usr/local/SOS/cori/master'
+                        '--with-ofi=/global/homes/o/ozog/usr/local/libfabric/cori-master'
+                        '--disable-mr-scalable'
+                        '--with-xpmem=/opt/cray/xpmem/default'
+                        '--enable-completion-polling' '--enable-threads'
+                        '--with-pmi=/opt/cray/pe/pmi/default' '--enable-debug'
+  Build Date            Mon Mar 12 07:27:15 PDT 2018
+  Build CC              gcc
+  Build CFLAGS          -std=gnu11 -g -O2 -Wall -g -fvisibility=hidden
+
+
+Results for 2 PEs 500 trials with window size 64 max message size 8388608 with multiple of 2 increments, 
+targeting 1 remote PEs initiated from 1 PEs, thread safety MULTIPLE (8 threads)
+
+Length           Uni-directional Bandwidth           Message Rate
+in bytes         in megabytes per second         in messages/seconds
+        1             1.10                          1102171.08
+        2             4.08                          2037766.42
+        4            11.27                          2818145.82
+        8            14.55                          1818129.20
+       16            47.92                          2994759.02
+       32            47.76                          1492474.65
+       64            96.08                          1501320.57
+      128            89.02                           695483.00
+      256           373.35                          1458389.36
+      512           750.93                          1466666.10
+     1024          1461.02                          1426778.94
+     2048          2376.71                          1160502.05
+     4096          3110.79                           759471.19
+     8192          4721.44                           576347.92
+    16384          6386.18                           389781.49
+    32768          8858.88                           270351.55
+    65536          9121.93                           139189.60
+   131072          9336.54                            71232.13
+   262144          9472.65                            36135.30
+   524288          9515.69                            18149.74
+  1048576          9224.96                             8797.61
+  2097152          8938.22                             4262.07
+  4194304          9087.84                             2166.71
+  8388608          9121.34                             1087.35
