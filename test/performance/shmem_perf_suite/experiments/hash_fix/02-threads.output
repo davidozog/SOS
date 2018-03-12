@@ -1,0 +1,43 @@
+Sandia OpenSHMEM 1.4.0
+Build information:
+  Git Version           v1.4.0-133-g73b59e2b (pr/hash_tid_struct_fix)
+  Configure Args        '--prefix=/global/homes/o/ozog/usr/local/SOS/cori/master'
+                        '--with-ofi=/global/homes/o/ozog/usr/local/libfabric/cori-master'
+                        '--disable-mr-scalable'
+                        '--with-xpmem=/opt/cray/xpmem/default'
+                        '--enable-completion-polling' '--enable-threads'
+                        '--with-pmi=/opt/cray/pe/pmi/default' '--enable-debug'
+  Build Date            Mon Mar 12 07:27:15 PDT 2018
+  Build CC              gcc
+  Build CFLAGS          -std=gnu11 -g -O2 -Wall -g -fvisibility=hidden
+
+
+Results for 2 PEs 500 trials with window size 64 max message size 8388608 with multiple of 2 increments, 
+targeting 1 remote PEs initiated from 1 PEs, thread safety MULTIPLE (2 threads)
+
+Length           Uni-directional Bandwidth           Message Rate
+in bytes         in megabytes per second         in messages/seconds
+        1             0.51                           506131.46
+        2             1.00                           499545.71
+        4             2.06                           516220.51
+        8             4.13                           516419.77
+       16             8.18                           511530.39
+       32            12.55                           392291.70
+       64            25.01                           390778.79
+      128            50.10                           391407.80
+      256            99.34                           388030.92
+      512           199.72                           390068.45
+     1024           396.03                           386748.60
+     2048           742.10                           362355.92
+     4096          1384.03                           337899.04
+     8192          2422.99                           295775.15
+    16384          1669.55                           101900.99
+    32768          2981.31                            90982.29
+    65536          5168.81                            78869.77
+   131072          7606.22                            58030.84
+   262144          8727.83                            33294.03
+   524288          9393.42                            17916.53
+  1048576          9701.82                             9252.37
+  2097152          9714.71                             4632.33
+  4194304          9413.81                             2244.43
+  8388608          9455.78                             1127.22
