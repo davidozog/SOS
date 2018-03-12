@@ -8,7 +8,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=david.m.ozog@gmail.com
 
-cd /global/homes/o/ozog/Repos/SOS/test/performance/shmem_perf_suite/experiments
+cd /global/homes/o/ozog/Repos/SOS/test/performance/shmem_perf_suite/experiments/hash_fix/job_files
 
 SHMEM_DEBUG=1 SHMEM_INFO=1 SHMEM_BOUNCE_SIZE=0 SHMEM_OFI_STX_MAX=16 srun -c 1  -N 2 -n 2 -C haswell /global/homes/o/ozog/Repos/SOS/test/performance/shmem_perf_suite/shmem_bw_put_ctx_perf -T 1  -C SINGLE   > single-thread.output
 SHMEM_DEBUG=1 SHMEM_INFO=1 SHMEM_BOUNCE_SIZE=0 SHMEM_OFI_STX_MAX=16 srun -c 1  -N 2 -n 2 -C haswell /global/homes/o/ozog/Repos/SOS/test/performance/shmem_perf_suite/shmem_bw_put_ctx_perf -T 1  -C MULTIPLE > 01-threads.output
