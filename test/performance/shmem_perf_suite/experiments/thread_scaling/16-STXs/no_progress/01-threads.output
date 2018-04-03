@@ -1,0 +1,108 @@
+Sandia OpenSHMEM 1.4.1rc1
+  SHMEM_INFO                 1 (type: bool, default: 0)
+	Print library information message at startup
+  SHMEM_VERSION              0 (type: bool, default: 0)
+	Print library version at startup
+  SHMEM_DEBUG                1 (type: bool, default: 0)
+	Enable debugging messages
+  SHMEM_SYMMETRIC_SIZE       536870912 (type: size, default: 536870912)
+	Symmetric heap size
+
+Additional options:
+  SHMEM_SYMMETRIC_HEAP_USE_HUGE_PAGES 0 (type: bool, default: 0)
+	Use Linux huge pages for symmetric heap
+  SHMEM_SYMMETRIC_HEAP_PAGE_SIZE 2097152 (type: size, default: 2097152)
+	Page size to use for huge pages
+  SHMEM_SYMMETRIC_HEAP_USE_MALLOC 0 (type: bool, default: 0)
+	Allocate the symmetric heap using malloc
+  SHMEM_BOUNCE_SIZE          0 (type: size, default: 2048)
+	Maximum message size to bounce buffer
+  SHMEM_MAX_BOUNCE_BUFFERS   128 (type: long, default: 128)
+	Maximum number of bounce buffers per context
+  SHMEM_TRAP_ON_ABORT        0 (type: bool, default: 0)
+	Generate trap if the program aborts or calls shmem_global_exit
+
+Collectives options:
+  SHMEM_COLL_CROSSOVER       4 (type: long, default: 4)
+	Crossover between linear and tree collectives
+  SHMEM_COLL_RADIX           4 (type: long, default: 4)
+	Radix for tree-based collectives
+  SHMEM_BARRIER_ALGORITHM    auto (type: string, default: auto)
+	Algorithm for barrier.  Options are auto, linear, tree, dissem
+  SHMEM_BCAST_ALGORITHM      auto (type: string, default: auto)
+	Algorithm for broadcast.  Options are auto, linear, tree
+  SHMEM_REDUCE_ALGORITHM     auto (type: string, default: auto)
+	Algorithm for reductions.  Options are auto, linear, tree, recdbl
+  SHMEM_COLLECT_ALGORITHM    auto (type: string, default: auto)
+	Algorithm for collect.  Options are auto, linear
+  SHMEM_FCOLLECT_ALGORITHM   auto (type: string, default: auto)
+	Algorithm for fcollect.  Options are auto, linear, ring, recdbl
+
+Network transport: OFI
+  SHMEM_OFI_ATOMIC_CHECKS_WARN 1 (type: bool, default: 0)
+	Display warnings about unsupported atomic operations
+  SHMEM_OFI_PROVIDER         auto (type: string, default: auto)
+	Provider that should be used by the OFI transport
+  SHMEM_OFI_USE_PROVIDER     auto (type: string, default: auto)
+	Deprecated, replaced by SHMEM_OFI_PROVIDER
+  SHMEM_OFI_FABRIC           auto (type: string, default: auto)
+	Fabric that should be used by the OFI transport
+  SHMEM_OFI_DOMAIN           auto (type: string, default: auto)
+	Fabric domain that should be used by the OFI transport
+  SHMEM_OFI_TX_POLL_LIMIT    -1 (type: long, default: -1)
+	Put completion poll limit
+  SHMEM_OFI_RX_POLL_LIMIT    -1 (type: long, default: -1)
+	Get completion poll limit
+  SHMEM_OFI_STX_MAX          16 (type: long, default: 1)
+	Maximum number of STX contexts
+  SHMEM_OFI_STX_THRESHOLD    1 (type: long, default: 1)
+	Maximum number of shared contexts per STX before allocating a new STX resource
+  SHMEM_OFI_STX_ALLOCATOR    round-robin (type: string, default: round-robin)
+	Algorithm for allocating STX resources to contexts
+  SHMEM_OFI_STX_DISABLE_PRIVATE 0 (type: bool, default: 0)
+	Disallow private contexts from having exclusive STX access
+
+On-node transport: XPMEM
+
+Build information:
+  Git Version           v1.4.1rc1-12-g48ce0327 (master)
+  Configure Args        '--prefix=/global/homes/o/ozog/usr/local/SOS/cori/master'
+                        '--with-ofi=/global/homes/o/ozog/usr/local/libfabric/cori-master'
+                        '--disable-mr-scalable'
+                        '--with-xpmem=/opt/cray/xpmem/default'
+                        '--enable-completion-polling' '--enable-threads'
+                        '--with-pmi=/opt/cray/pe/pmi/default' '--enable-debug'
+  Build Date            Tue Apr  3 08:16:25 PDT 2018
+  Build CC              gcc
+  Build CFLAGS          -std=gnu11 -g -O2 -Wall -g -fvisibility=hidden
+
+
+Results for 2 PEs 500 trials with window size 64 max message size 8388608 with multiple of 2 increments, 
+targeting 1 remote PEs initiated from 1 PEs, thread safety MULTIPLE (1 threads)
+
+Length           Uni-directional Bandwidth           Message Rate
+in bytes         in megabytes per second         in messages/seconds
+        1            43.73                          43731023.11
+        2            92.74                          46369485.97
+        4           183.89                          45973108.93
+        8           377.31                          47163690.81
+       16           731.19                          45699398.98
+       32          1461.71                          45678392.36
+       64          2824.98                          44140249.82
+      128          5244.54                          40972951.29
+      256         10416.79                          40690571.20
+      512         18643.37                          36412833.61
+     1024         29383.65                          28694971.22
+     2048         42736.95                          20867650.85
+     4096         60391.80                          14744091.22
+     8192         78189.23                          9544583.16
+    16384         60469.31                          3690754.05
+    32768         27160.23                           828864.36
+    65536         27661.12                           422075.14
+   131072         26090.61                           199055.53
+   262144         17199.90                            65612.41
+   524288         14641.80                            27927.02
+  1048576         14756.40                            14072.80
+  2097152         14727.83                             7022.78
+  4194304         14643.61                             3491.31
+  8388608         14133.73                             1684.87
